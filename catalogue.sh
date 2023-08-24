@@ -24,19 +24,19 @@ VALIDATE(){
     fi 
 }
 
-echo "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"  &>> $LOG
-VALIDATE " curl req"  &>> $LOG
-yum install nodejs -y &>> $LOG
-VALIDATE "node js"  &>> $LOG
-useradd roboshop
-VALIDATE "ADDED USER ROBOSHOP "  &>> $LOG
-mkdir /app
-VALIDATE " created app "  &>> $LOG
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-VALIDATE " downloaded source code " &>> $LOG
-cd /app 
-unzip /tmp/catalogue.zip
-VALIDATE "ZIPPING FILE."
+# echo "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"  &>> $LOG
+# VALIDATE " curl req"  &>> $LOG
+# yum install nodejs -y &>> $LOG
+# VALIDATE "node js"  &>> $LOG
+# useradd roboshop
+# VALIDATE "ADDED USER ROBOSHOP "  &>> $LOG
+# mkdir /app
+# VALIDATE " created app "  &>> $LOG
+# curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+# VALIDATE " downloaded source code " &>> $LOG
+# cd /app 
+# unzip /tmp/catalogue.zip
+# VALIDATE "ZIPPING FILE."
 npm install &>> $LOG
 VALIDATE " npm installed "
 cp catalogue.txt /etc/systemd/system/catalogue.service
