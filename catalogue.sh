@@ -2,7 +2,7 @@
 ID=$(id -u)
 DATE=$(date +%F)
 NAME=$0
-LOG=/tmp/$NAME_$DATE.log 
+LOG=/tmp/$0_$DATE.log 
 MONGOD_HOST="mongod.brainchange.com"
 
 
@@ -26,7 +26,7 @@ VALIDATE(){
 
 echo "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"  &>> $LOG
 VALIDATE " curl req"  &>> $LOG
-yum install nodejs -y $>> $LOG
+yum install nodejs -y &>> $LOG
 VALIDATE "node js"  &>> $LOG
 useradd roboshop
 VALIDATE "ADDED USER ROBOSHOP "  &>> $LOG
