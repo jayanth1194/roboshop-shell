@@ -19,7 +19,7 @@ VALIDATE(){
 
 }
 VALIDATE_REDIS(){
-    yum installed list redis 
+    yum list installed redis 
     if [ $? -eq 0 ]
     then 
         echo " redis is already installed"
@@ -41,13 +41,8 @@ installredis(){
     CHECK_STATUS
 }
 
-if [ $USER -ne 0 ]
-then 
-    echo " need root access "
-    exit 1 
-fi 
 
-VALIDATE_REDIS
+
 
 CHECK_STATUS(){
 
@@ -60,3 +55,11 @@ systemctl start redis &>>$LOG
 VALIDATE " redis started"
 
 }
+
+
+if [ $USER -ne 0 ]
+then 
+    echo " need root access "
+    exit 1 
+fi 
+VALIDATE_REDIS
