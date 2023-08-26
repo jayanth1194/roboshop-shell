@@ -23,6 +23,7 @@ VALIDATE_REDIS(){
     if [ $? -eq 0 ]
     then 
         echo " redis is already installed"
+        CHECK_STATUS
 
         exit 1
     else 
@@ -37,6 +38,7 @@ installredis(){
     VALIDATE " enabled redis 6.2"
     yum install redis -y  &>>$LOG
     VALIDATE "redis installed"
+    CHECK_STATUS
 }
 
 if [ $USER -ne 0 ]
@@ -47,8 +49,9 @@ fi
 
 VALIDATE_REDIS
 
+CHECK_STATUS(){
 
-sed -i "s/127.0.0.1/0.0.0.0" /etc/redis.conf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf /etc/redis/redis.conf 
 VALIDATE " changed to all networks"
 
 systemctl enable redis &>>$LOG
@@ -56,3 +59,4 @@ VALIDATE " redis enabled"
 systemctl start redis &>>$LOG
 VALIDATE " redis started"
 
+}
