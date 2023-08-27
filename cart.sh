@@ -16,8 +16,9 @@ VALIDATE(){
     fi 
 }
 check_node(){
-    yum list installed node 
-    if [ $? -ne 0 ]
+    yum list install node
+
+    if [ $?  -eq 0 ]
     then 
         echo " node is installed already..."
     else 
