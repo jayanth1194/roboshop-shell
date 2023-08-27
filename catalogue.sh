@@ -79,7 +79,7 @@ VALIDATE " changed mongodb server"
 systemctl daemon-reload &>> $LOG
 VALIDATE "damon reload" &>> $LOG
 systemctl enable catalogue &>> $LOG
-VALIDATE " CATALOGUE START " &>> $LOG
+VALIDATE " CATALOGUE enable " &>> $LOG
 systemctl start catalogue &>> $LOG
 VALIDATE " CATALOGUE START " &>> $LOG
 cp /home/centos/roboshop-shell/mongo-client /etc/yum.repos.d/mongo.repo
