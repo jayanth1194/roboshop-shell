@@ -32,7 +32,7 @@ check_node(){
         echo " node already installed "
     else 
         install_node
-
+    fi 
 }
 
 install_node(){
