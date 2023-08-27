@@ -22,6 +22,7 @@ check_node(){
         echo " node is installed already..."
     else 
         install_node
+    fi 
 }
 install_node(){
     curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOG
