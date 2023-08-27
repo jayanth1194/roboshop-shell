@@ -3,7 +3,7 @@ ID=$(id -u)
 DATE=$(date +%F)
 NAME=$0
 LOG=/tmp/$0_$DATE.log 
-MONGOD_HOST="mongod.brainchange.com"
+MONGOD_HOST="mongod.chamarthiaparna.online"
 
 
 
@@ -24,24 +24,28 @@ VALIDATE(){
     fi 
 }
 
-# echo "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"  &>> $LOG
-# VALIDATE " curl req"  &>> $LOG
-# yum install nodejs -y &>> $LOG
-# VALIDATE "node js"  &>> $LOG
-# useradd roboshop
-# VALIDATE "ADDED USER ROBOSHOP "  &>> $LOG
-# mkdir /app
-# VALIDATE " created app "  &>> $LOG
-# curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-# VALIDATE " downloaded source code " &>> $LOG
-# cd /app 
-# unzip /tmp/catalogue.zip
-# VALIDATE "ZIPPING FILE."
+echo "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"  &>> $LOG
+VALIDATE " curl req"  &>> $LOG
+yum install nodejs -y &>> $LOG
+VALIDATE "node js"  &>> $LOG
+
+
+useradd roboshop
+VALIDATE "ADDED USER ROBOSHOP "  &>> $LOG
+mkdir /app
+VALIDATE " created app "  &>> $LOG
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+VALIDATE " downloaded source code " &>> $LOG
+cd /app 
+chmod 777 /tmp 
+unzip /tmp/catalogue.zip
+VALIDATE "ZIPPING FILE."
+cd /app
 npm install &>> $LOG
 VALIDATE " npm installed "
 cp catalogue.txt /etc/systemd/system/catalogue.service
-VALIDATE "copied file"
-sed -i "s/<MONGODB-SERVER-IPADDRESS>/$MONGOD_HOST/"  /etc/systemd/system/catalogue.service
+VALIDATE "copied file" 
+sed -i "s/<MONGODB-SERVER-IPADDRESS>/$MONGOD_HOST/g"  /etc/systemd/system/catalogue.service
 VALIDATE " changed mongodb server"
 systemctl daemon-reload &>> $LOG
 VALIDATE "damon reload" &>> $LOG

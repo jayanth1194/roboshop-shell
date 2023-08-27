@@ -28,7 +28,7 @@ check_node(){
 install_node(){
     curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOG
     VALIDATE "Repo downloaded ......"
-    yum install nodejs -y 
+    yum install nodejs -y &>>$LOG
     VALIDATE " installed nodejs ...."
 }
 
