@@ -3,7 +3,7 @@ USER=$(id -u)
 DATE=$(date +%F)
 LOG=/tmp/$0-$DATE.log 
 
-INSTANCE_TYPE=''
+INSTANCE_TYPE=
 IMAGE_ID='ami-051f7e7f6c2f40dc1'
 SECURITY_GRP='sg-07e78ffac793206c2'
 
