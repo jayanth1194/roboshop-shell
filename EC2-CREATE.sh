@@ -15,7 +15,7 @@ for i in ${NAME[@]}
 do 
     if [[ $i == "mongod" || $i == "mysql" ]]
     then 
-        INSTANCE_TYPE="t3.micro"
+        INSTANCE_TYPE="t3.medium"
     else 
         INSTANCE_TYPE="t2.micro"
     fi 
