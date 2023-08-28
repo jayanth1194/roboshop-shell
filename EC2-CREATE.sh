@@ -13,7 +13,7 @@ SECURITY_GRP='sg-07e78ffac793206c2'
 NAME=("mongod" "redis" "mysql" "web" "cart")
 for i in ${NAME[@]}
 do 
-    if [ $i == "mongod" || $i == "mysql" ]
+    if [[ $i == "mongod" || $i == "mysql" ]]
     then 
         INSTANCE_TYPE="t3.micro"
     else 
