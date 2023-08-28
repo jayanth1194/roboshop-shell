@@ -3,7 +3,7 @@ ID=$(id -u)
 DATE=$(date +%F)
 NAME=$0
 LOG=/tmp/$0_$DATE.log 
-MONGOD_HOST="mongod.chamarthiaparna.online"
+MONGOD_HOST="mongodb.chamarthiaparna.online"
 
 
 

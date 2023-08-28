@@ -14,13 +14,6 @@ fi
 
 
 
-
-
-
-
-
-
-
 VALIDATE(){
 
     if [ $? -ne 0 ]
@@ -36,7 +29,7 @@ VALIDATE(){
 cp mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE " copying the  mongo files " 
 
-yum install mongodb-org -y
+yum install mongodb-org -y 
 
 VALIDATE " installing mongoDb " 
 
@@ -56,3 +49,6 @@ VALIDATE "changing to all networks"
 systemctl restart mongod
 
 VALIDATE " restaring the mongod "
+
+systemctl status mongod
+VALIDATE " mongod status...."
