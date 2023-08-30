@@ -5,13 +5,9 @@
     ansible.builtin.yum:
       name: nginx
       state: installed 
-  
-- name: starting nginx
-  hosts: nginx
-  tasks:
-    name: start nginx
-    ansible.builtin.yum:
+  - name: start nginx
+    ansible.builtin.serivces:
       name: nginx
       state: started
-  
+
 
