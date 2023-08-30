@@ -6,7 +6,7 @@
       name: nginx
       state: installed 
   
-- name: start nginx
+- name: starting nginx
   hosts: nginx
   tasks:
     name: start nginx
