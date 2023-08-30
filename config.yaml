@@ -1,0 +1,9 @@
+name: pjayanth
+id: tata
+role: qa
+project: cdn
+modules:
+  name: wsa
+  name2: portal
+  name3: billing
+  name4: live

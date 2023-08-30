@@ -1,0 +1,11 @@
+{
+    "host":"domain.com",
+    "asset-id":"jayanth12300_1",
+    "wsa":"enabled",
+    "cookie":{
+        "ttl":"300",
+        "user-gent":"firefox",
+        "cache":"true"
+    }
+
+}
