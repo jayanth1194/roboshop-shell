@@ -6,4 +6,4 @@
   tasks:
     - name: lis of variables 
       ansible.builtin.debug:
-        msg: " list of variables {{mode}} and {{model}}"
+        msg: " list of variables {{NAME}} and {{EXP}}"
