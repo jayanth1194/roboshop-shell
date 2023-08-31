@@ -1,10 +1,9 @@
-- name : check variables
+- name: list of variables 
   hosts: nginx
-  vars:
-    course: DEVOPS
-    package: 10
-    company: xyz
+  var_file: 
+    - var-files.yml
+
   tasks:
-    - name: jayant data
+    - name: lis of variables 
       ansible.builtin.debug:
-        msg: "jayant data is working as {{course}} with {{package}}lpa  in {{company}}" 
+        msg: " list of variables {{mode}} and {{model}}"
