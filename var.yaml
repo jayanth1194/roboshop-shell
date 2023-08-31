@@ -1,0 +1,10 @@
+- name : check variables
+  hosts: nginx
+  vars:
+    course: DEVOPS
+    package: 10
+    company: xyz
+  tasks:
+    - name: jayant data
+      ansible.builtin.debug:
+        msg: "jayant data is working as {{course}} with {{package}}lpa  in {{company}}" 
