@@ -1,7 +1,6 @@
-- name: list of variables 
-  hosts: nginx
-  var_file: 
-    - var-files.yml
 
-  tasks:
-    - name: lis of variables 
+vars: 
+  name: homda
+  model: telangana
+  mode: car
+  price: 24
