@@ -1,0 +1,13 @@
+- name: check inheritance 
+  hosts: nginx
+  vars:
+    name: pjayanth
+    salary: 8
+    company: tata
+  tasks:
+    - name: first company
+      vars:
+        company: infy
+      ansible.builtin.debug:
+        msg: " check details {{name}}, {{salary}} {{company}}" 
+    
