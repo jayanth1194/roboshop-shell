@@ -7,7 +7,7 @@
   tasks:
     - name: first company
       vars:
-        company: infy
+        - company: infy
       ansible.builtin.debug:
         msg: " check details {{name}}, {{salary}} {{company}}" 
     
