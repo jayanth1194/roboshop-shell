@@ -1,0 +1,13 @@
+- name: pjayanth
+  hosts: nginx
+  vars_prompt:
+    - name: username 
+      prompt: enter your username please
+      private: yes
+    - name: password
+      prompt: enter your password 
+      private: no
+  tasks:
+    - name: nginx 
+      ansible.builtin.debug:
+        msg: " user: {{username}} and password: {{password}}"
