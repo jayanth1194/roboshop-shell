@@ -7,9 +7,8 @@
     var.yaml
   tasks:
     - name: check var
-      var:
+      vars:
         rank: 29
         course: btech with limited course 
       ansible.builtin.debug:
         msg: " your rank is {{rank}} and course is {{course}}"
-        
