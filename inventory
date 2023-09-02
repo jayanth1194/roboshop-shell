@@ -4,6 +4,8 @@
 [nginx:vars]
 Location=USA
 Type=WSA
+rank=4
+course=your wish
 
 [mongod]
 
