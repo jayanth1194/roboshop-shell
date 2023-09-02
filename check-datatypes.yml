@@ -1,16 +1,16 @@
 - name: daytaypes in ansible 
   hosts: localhost
   vars: 
-    name: " tarak"
-    age: 10
-    isboy: true
-    parents:
-      pallavi
-      kotesh
-    relatives:
-      mama: 2
-      papa: 1
-      grand: 4
+    - name: " tarak"
+    - age: 10
+    - isboy: true
+    - parents:
+        - pallavi
+        - kotesh
+    - relatives:
+        mama: 2
+        papa: 1
+        grand: 4
   tasks:
     - name: check all variables
       ansible.builtin.debug:
