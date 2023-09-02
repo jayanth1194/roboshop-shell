@@ -3,7 +3,7 @@
   vars:
     name: pjayanth
     salary: 8
-    company: tata
+    company: xyz
   tasks:
     - name: first company
       vars:

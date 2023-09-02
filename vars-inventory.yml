@@ -1,0 +1,6 @@
+- name: check inventory vars
+  hosts: nginx
+  tasks:
+    - name: check vars
+      ansible.builtin.debug:
+        msg: " this server id for {{Type}} in {{Location}}"
