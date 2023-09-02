@@ -7,10 +7,10 @@
     parents:
       pallavi
       kotesh
-    - relatives:
-        mama: 2
-        papa: 1
-        grand: 4
+    relatives:
+      mama: 2
+      papa: 1
+      grand: 4
   tasks:
     - name: check all variables
       ansible.builtin.debug:
