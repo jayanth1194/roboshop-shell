@@ -1,0 +1,15 @@
+- name: test vars
+  hosts: localhost
+  vars:
+    rank: 12
+    course: btech
+  vars_files:
+    var.yaml
+  tasks:
+    - name: check var
+      var:
+        rank: 29
+        course: btech with limited course 
+      ansible.builtin.debug:
+        msg: " your rank is {{rank}} and course is {{course}}"
+        
