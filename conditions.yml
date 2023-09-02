@@ -5,6 +5,7 @@
   - name: conditions check 
     ansible.builtin.command: id roboshop
     register: output1
+  - name: check output 
     ansible.builtin.debug:
       msg: " print {{output1}}"
 
