@@ -14,6 +14,6 @@
   tasks:
     - name: check all variables
       ansible.builtin.debug:
-        msg: " check the {{age}} of boy "
+        msg: " check the {{age}} of boy and {{mama}} and {{papa}} also "
 
 
