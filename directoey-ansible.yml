@@ -1,0 +1,15 @@
+- name: local testing 
+  hosts: localhost
+  tasks:
+  - name: check the directory in local 
+    ansible.builtin.stat:
+      path: /app
+    register: app_path
+  
+  - name: exist status 
+    ansible.builtin.debug: 
+      msg: "print status {{app_patch.rc}}"
+  
+  
+
+    
