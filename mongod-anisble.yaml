@@ -27,9 +27,9 @@
       enabled: yes
 
   - name: start the service 
-      ansible.builtin.service:
-        name: mongod
-        state: started
+    ansible.builtin.service:
+      name: mongod
+      state: started
   - name: change to all networks
     ansible.builtin.replace:
       path: /etc/mongod.conf
