@@ -9,9 +9,14 @@
       path: "{{directory}}"
     register: app_path
   
-  # - name: exist status 
-  #   ansible.builtin.debug: 
-  #     msg: "print status {{app_path.rc}}"
+
+  - name: exist status
+    debug:
+      msg: " exist status {{app_path.stat.exists}}"
+
+  - name: create the directory 
+    ansible.builtin.command: mkdir /app
+    when: app_path.stat.exists == "false"
   
   
 
