@@ -5,7 +5,7 @@
   - name: loop variables
     ansible.builtin.debug:
       msg: "hi {{list}}"
-    loops:
+    loop:
     - jayanth
     - revanth
     - siva
