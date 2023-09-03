@@ -7,7 +7,7 @@
       name: "{{item.name}}"
       state: "{{item.state}}"
     loop:
-    - {name: nginx, state: remove}
-    - {name: mysql, state: remove}
+    - {name: nginx, state: removed}
+    - {name: mysql, state: removed}
     - {name: varnish, state: installed}
 
