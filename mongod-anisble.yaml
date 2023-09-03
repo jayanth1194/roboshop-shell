@@ -15,7 +15,7 @@
     when: not output1.stat.exists
 
   - name: install mongodb
-    ansible.debug.command: yum install mongodb-org -y
+    ansible.builtin.command: yum install mongodb-org -y
     register: output2
   - name: status of installation
     ansible.builtin.debug:
