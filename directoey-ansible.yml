@@ -8,7 +8,7 @@
   
   - name: exist status 
     ansible.builtin.debug: 
-      msg: "print status {{app_patch.rc}}"
+      msg: "print status {{app_path.rc}}"
   
   
 
