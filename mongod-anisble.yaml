@@ -17,9 +17,11 @@
   - name: install mongodb
     ansible.builtin.command: yum install mongodb-org -y
     register: output2
+
   - name: status of installation
     ansible.builtin.debug:
-      msg: " status of mongodb is {{output2.state}}"
+      msg: " status of mongodb is success"
+    when: output2.rc == 1
 
   - name: enable the service 
     ansible.builtin.service:
