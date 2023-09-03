@@ -1,14 +1,17 @@
 - name: local testing 
   hosts: localhost
+  vars:
+    directory: "/app"
+
   tasks:
   - name: check the directory in local 
     ansible.builtin.stat:
-      path: /app
+      path: {{directory}}
     register: app_path
   
-  - name: exist status 
-    ansible.builtin.debug: 
-      msg: "print status {{app_path.rc}}"
+  # - name: exist status 
+  #   ansible.builtin.debug: 
+  #     msg: "print status {{app_path.rc}}"
   
   
 
