@@ -1,0 +1,12 @@
+
+- name: check variables
+  hosts: localhost
+  tasks:
+  - name: loop variables
+    ansible.builtin.debug:
+      msg: "hi {{list}}"
+    loops:
+    - jayanth
+    - revanth
+    - siva
+
