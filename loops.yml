@@ -4,7 +4,7 @@
   tasks:
   - name: loop variables
     ansible.builtin.yum:
-      name: "{{items}}"
+      name: "{{item}}"
       state: installed
     loop:
     - nginx
