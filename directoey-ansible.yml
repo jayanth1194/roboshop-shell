@@ -16,7 +16,7 @@
 
   - name: create the directory 
     ansible.builtin.command: mkdir /app
-    when: "{{app_path.stat.exists}}" == "false"
+    when: app_path.stat.exists == "false"
   
   
 
