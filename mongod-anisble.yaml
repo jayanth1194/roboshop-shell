@@ -21,7 +21,7 @@
   - name: status of installation
     ansible.builtin.debug:
       msg: " status of mongodb is success"
-    when: output2.rc == 1
+    when: output2.rc == 0
 
   - name: enable the service 
     ansible.builtin.service:
