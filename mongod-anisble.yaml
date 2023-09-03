@@ -1,0 +1,43 @@
+- name: mongod-ansible
+  hosts: mongod
+  become: yes
+  tasks:
+
+  - name: check file exist or not
+    ansible.builtin.stat:
+      path: /etc/yum.repos.d/mongo.repo
+    register: output1
+
+  - name: copy the mongob file
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+    when: not output1.stat.exists
+
+  - name: install mongodb
+    ansible.debug.command: yum install mongodb-org -y
+    register: output2
+  - name: status of installation
+    ansible.builtin.debug:
+      msg: " status of mongodb is {{output2.state}}"
+
+  - name: enable the service 
+    ansible.builtin.service:
+      name: mongod
+      enabled: yes
+
+  - name: start the service 
+      ansible.builtin.service:
+        name: mongod
+        state: started
+  - name: change to all networks
+    ansible.builtin.replace:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+  - name: restart the service 
+    ansible.builtin.service:
+      name: mongod
+      state: restarted
+      
+
