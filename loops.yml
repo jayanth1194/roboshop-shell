@@ -3,10 +3,11 @@
   hosts: localhost
   tasks:
   - name: loop variables
-    ansible.builtin.debug:
-      msg: "hi {{item}}"
+    ansible.builtin.yum:
+      name: {{items}}
+      state: installed
     loop:
-    - jayanth
-    - revanth
+    - nginx
+    - mysql
     - siva
 
