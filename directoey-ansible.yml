@@ -6,7 +6,7 @@
   tasks:
   - name: check the directory in local 
     ansible.builtin.stat:
-      path: {{directory}}
+      path: "{{directory}}"
     register: app_path
   
   # - name: exist status 
