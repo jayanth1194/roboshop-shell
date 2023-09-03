@@ -4,10 +4,10 @@
   tasks:
   - name: loop variables
     ansible.builtin.yum:
-      name: "{{item}}"
-      state: installed
+      name: "{{item.name}}"
+      state: "{{item.state}}"
     loop:
-    - nginx
-    - mysql
-    - siva
+    - {name: nginx, state: remove}
+    - {name: mysql, state: remove}
+    - {name: varnish, state: installed}
 
