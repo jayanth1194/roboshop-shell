@@ -10,6 +10,7 @@ course=your wish
 [mongod]
 172.31.36.136
 
-
+[catalogue]
+172.31.38.223
 
 [cart]

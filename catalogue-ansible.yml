@@ -1,0 +1,73 @@
+- name: catalogue server
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: download curl request
+    ansible.builtin.command: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+  
+  - name: install node js
+    ansible.builtin.yum:
+      name: nodejs
+      state: installed
+  
+  - name: check roboshop username
+    ansible.builtin.command: id roboshop 
+    register: output1
+   
+
+  - name: install roboshop user if not 
+    ansible.builtin.user:
+      name: roboshop
+    when: output.rc!=0
+  
+  - name: create path 
+    ansible.builtin.file:
+      path: /app
+      state: directory 
+      
+  - name: download application code 
+    ansible.builtin.command: curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+
+
+  - name: move to app folder 
+    ansible.builtin.command: cd /app
+
+  - name: extract the zip file
+    ansible.builtin.unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app
+    
+
+  - name: install node 
+    ansible.builtin.command: npm install
+  
+  - name: copy the catalogue file
+    ansible.builtin.copy:
+      src: catalogue.service 
+      dest: /etc/systemd/system/catalogue.service
+    
+
+  - name: daemon-reload 
+    command: systemctl daemon-reload
+  
+  - name: enable and start 
+    service:
+      name: catalogue
+      state: installed
+      enabled: true
+  
+
+
+  - name: copy the mongod repo
+    copy: 
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+  
+  - name: install mongod 
+    command: yum install mongodb-org-shell -y
+  
+  - name: load the scheme values
+    command: mongo --host "{{mongod}}" </app/schema/catalogue.js}} </app/schema/catalogue.js
+    
+    
+    
