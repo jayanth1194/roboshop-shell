@@ -3,7 +3,8 @@
   become: yes
   tasks:
   - name: download curl request
-    ansible.builtin.script:   curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+    ansible.builtin.script:   "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
+
   
   - name: install node js
     ansible.builtin.yum:
