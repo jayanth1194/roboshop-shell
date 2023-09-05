@@ -10,6 +10,11 @@ course=your wish
 [mongod]
 172.31.38.230
 
+
+[catalogue:vars]
+mongod=172.31.38.230
+
+
 [catalogue]
 172.31.45.203
 
