@@ -53,6 +53,31 @@
       path: /usr/share/nginx/html
       state: absent
 
+  - name: download artificat 
+    shell: curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+     
+  - name: create html directory 
+    ansible.builtin.file:
+      path: /usr/share/nginx/html
+      state: directory
+    
+  - name: unzip the archive
+    ansible.builtin.unarchive:
+      src: /tmp/web.zip
+      dest: /usr/share/nginx/html
+      remote_src: yes
+
+   
+  - name: copy the roboshop conf
+    copy: 
+      src: roboshop.conf
+      dest: /etc/nginx/default.d/roboshop.conf 
+
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
+
   
     
   
