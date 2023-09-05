@@ -4,11 +4,7 @@
 [nginx:vars]
 nginx-public=54.165.90.77
 
-[nginx:vars]
-Location=USA
-Type=WSA
-rank=4
-course=your wish
+
 
 [mongod]
 172.31.38.230
