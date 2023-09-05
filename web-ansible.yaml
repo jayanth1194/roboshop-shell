@@ -33,7 +33,8 @@
 
   - name: print files
     debug:
-      msg: " print files {{list_files| map(attribute='files')| map (attribute='path')}}"
+      msg: " print files {{list_files.files | map (attribute='path')}}"
+  
 
   
 
