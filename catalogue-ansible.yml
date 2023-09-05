@@ -20,7 +20,7 @@
   - name: install roboshop user if not 
     ansible.builtin.user:
       name: roboshop
-    when: output.rc!=0
+    when: output1.rc!=0
   
   - name: create path 
     ansible.builtin.file:
