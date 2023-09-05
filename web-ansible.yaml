@@ -13,7 +13,7 @@
       name: nginx
       state: present
       
-  - name:  check nginx is pointing 
+  - name:  nginx point 
     uri: 
       url: http://"{{nginx-public}}".com:80
     
