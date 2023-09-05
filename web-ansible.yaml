@@ -32,10 +32,9 @@
 
 
   - name: print files
-    vars:
-      list_files: list_folder.files | map (attribute='path')
+    
     debug:
-      msg: " print files {{list_files}}"
+      msg: "{{list_folder.files | map (attribute='path')}}"
     register: list_files
   
 
