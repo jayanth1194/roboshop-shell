@@ -34,7 +34,7 @@
   - name: print files
     
     debug:
-      msg: "{{list_folder.files | map (attribute='path')}}"
+      "{{list_folder.files | map (attribute='path')}}"
     register: list_files
   
 
