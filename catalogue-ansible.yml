@@ -85,7 +85,7 @@
     command: yum install mongodb-org-shell -y
   
   - name: load the scheme values
-    command: mongo --host "{{mongod}}" < /app/schema/catalogue.js
+    command: "mongo --host "{{mongod}}" < /app/schema/catalogue.js"
     
     
     
