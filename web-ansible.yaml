@@ -33,10 +33,9 @@
 
   - name: print files
     debug:
-      msg: " print files {{list_files.files.path}}"
+      msg: " print files {{list_files| map(attribute='files')| map (attribute='path')}}"
 
-  - name: delete the files
-    file:
+  
 
 
   
