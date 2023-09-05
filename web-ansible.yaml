@@ -14,8 +14,9 @@
       state: started 
       
   - name: check nginx is pointing 
-    uri: http://{{nginx-public}}.com:80
-    method: GET
+    uri: 
+      url: http://{{nginx-public}}.com:80
+      method: GET
     
     register: output
   
