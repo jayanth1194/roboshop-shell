@@ -38,11 +38,14 @@
     ansible.builtin.unarchive:
       src: /tmp/catalogue.zip
       dest: /app
-      remote_src: yes
     
 
+  # - name: install node 
+  #   ansible.builtin.command: npm install
+
   - name: install node 
-    ansible.builtin.command: npm install
+    npm:
+      path: /app
   
   - name: copy the catalogue file
     ansible.builtin.copy:
