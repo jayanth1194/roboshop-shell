@@ -53,6 +53,12 @@
     ansible.builtin.copy:
       src: catalogue.service 
       dest: /etc/systemd/system/catalogue.service
+  
+  - name: keep id address of mongod
+    replace:
+      path: /etc/systemd/system/catalogue.service
+      regexp: <MONGODB-SERVER-IPADDRESS>
+      replace: "{{mongod}}"
     
 
   - name: daemon-reload 
