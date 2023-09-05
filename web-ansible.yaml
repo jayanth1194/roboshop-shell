@@ -33,7 +33,7 @@
 
   - name: print files
     debug:
-      msg: " print files {{list_files.path}}"
+      msg: " print files {{list_files.files.path}}"
 
   - name: delete the files
     file:
