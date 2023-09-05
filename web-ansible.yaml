@@ -11,7 +11,7 @@
   - name:  start the service
     yum: 
       name: nginx
-      state: started 
+      state: present
       
   - name: check nginx is pointing 
     uri: 
