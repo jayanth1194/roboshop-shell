@@ -36,6 +36,7 @@
       list_files: list_folder.files | map (attribute='path')
     debug:
       msg: " print files {{list_files}}"
+    register: list_files
   
 
 
