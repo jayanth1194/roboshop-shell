@@ -22,6 +22,10 @@
     ansible.builtin.user:
       name: roboshop
     when: output1.rc!=0
+
+
+
+
   
   - name: create path 
     ansible.builtin.file:
