@@ -1,5 +1,6 @@
 [nginx]
 172.31.35.120
+
 [nginx:vars]
 nginx-public=54.165.90.77
 
