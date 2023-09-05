@@ -42,7 +42,7 @@
 
   - name: remove the files in nginx folder
     file:
-      path: "{{items}}"
+      path: "{{item}}"
       state: absent
     with_items: "{{list_files}}"
 
