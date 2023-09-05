@@ -29,9 +29,15 @@
     find:
       path: /usr/share/nginx/html
     register: list_files
+
+
   - name: print files
     debug:
-      msg: " print files {{list_files}}"
+      msg: " print files {{list_files.path}}"
+
+  - name: delete the files
+    file:
+
 
   
     
