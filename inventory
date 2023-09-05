@@ -8,9 +8,9 @@ rank=4
 course=your wish
 
 [mongod]
-172.31.36.136
+172.31.38.230
 
 [catalogue]
-172.31.38.223
+172.31.45.203
 
 [cart]
