@@ -25,30 +25,33 @@
   #     mdg: " output is done"
   #   when: output.status.code == 200
 
-  - name: list all files in nginx folder
-    find:
-      path: /usr/share/nginx/html
-    register: list_folder
+  # - name: list all files in nginx folder
+  #   find:
+  #     path: /usr/share/nginx/html
+  #   register: list_folder
 
 
-  - name: print files
+  # - name: print files
     
-    debug:
-      "{{list_folder.files | map (attribute='path')}}"
-    register: list_files
+  #   debug:
+  #     "{{list_folder.files | map (attribute='path')}}"
+  #   register: list_files
   
 
 
-  - name: remove the files in nginx folder
-    file:
-      path: "{{item}}"
-      state: absent
-    with_items: "{{list_files}}"
+  # - name: remove the files in nginx folder
+  #   file:
+  #     path: "{{item}}"
+  #     state: absent
+  #   with_items: "{{list_files}}"
 
 
 
     
-
+  - name: Recursively remove directory
+    ansible.builtin.file:
+      path: /usr/share/nginx/html
+      state: absent
 
   
     
