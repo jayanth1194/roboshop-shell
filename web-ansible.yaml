@@ -13,17 +13,17 @@
       name: nginx
       state: present
       
-  - name:  nginx point 
-    uri: 
-      url: http://"{{nginx-public}}".com:80
+  # - name:  nginx point 
+  #   uri: 
+  #     url: http://"{{nginx-public}}".com:80
     
     
-    register: output
+  #   register: output
   
-  - name: nginx verification
-    debug:
-      mdg: " output is done"
-    when: output.status.code == 200
+  # - name: nginx verification
+  #   debug:
+  #     mdg: " output is done"
+  #   when: output.status.code == 200
 
   - name: list all files in nginx folder
     find:
