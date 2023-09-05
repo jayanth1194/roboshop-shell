@@ -28,15 +28,26 @@
   - name: list all files in nginx folder
     find:
       path: /usr/share/nginx/html
-    register: list_files
+    register: list_folder
 
 
   - name: print files
+    vars:
+      list_files: {{list_folder.files | map (attribute='path')}}
     debug:
-      msg: " print files {{list_files.files | map (attribute='path')}}"
+      msg: " print files {{list_files}}"
   
 
-  
+
+  - name: remove the files in nginx folder
+    file:
+      path: "{{items}}"
+      state: absent
+    with_items: {{list_files}}
+
+
+
+    
 
 
   
