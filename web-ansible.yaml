@@ -43,7 +43,7 @@
     file:
       path: "{{items}}"
       state: absent
-    with_items: {{list_files}}
+    with_items: "{{list_files}}"
 
 
 
