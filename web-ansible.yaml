@@ -13,10 +13,10 @@
       name: nginx
       state: present
       
-  - name: check nginx is pointing 
+  - name:  check nginx is pointing 
     uri: 
       url: http://"{{nginx-public}}".com:80
-      method: GET
+    
     
     register: output
   
