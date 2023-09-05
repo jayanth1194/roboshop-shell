@@ -1,6 +1,7 @@
 - name: catalogue server
   hosts: catalogue
   become: yes
+
   tasks:
   - name: download curl request
     ansible.builtin.shell:   "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
@@ -74,7 +75,7 @@
     command: yum install mongodb-org-shell -y
   
   - name: load the scheme values
-    command: mongo --host "{{mongod}}" </app/schema/catalogue.js}} </app/schema/catalogue.js
+    command: mongo --host "{{mongod}}" </app/schema/catalogue.js
     
     
     
