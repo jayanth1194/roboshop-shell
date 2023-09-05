@@ -60,7 +60,7 @@
   - name: enable and start 
     service:
       name: catalogue
-      state: installed
+      state: started
       enabled: true
   
 
