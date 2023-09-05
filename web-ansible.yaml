@@ -1,0 +1,42 @@
+- name: web application
+  hosts: nginx
+  become: yes
+  tasks:
+  - name: install nginx
+    yum:
+      name: nginx
+      state: installed
+      enabled: yes
+
+  - name:  start the service
+    yum: 
+      name: nginx
+      state: started 
+      
+  - name: check nginx is pointing 
+    uri: http://{{nginx-public}}.com:80
+    method: GET
+    
+    register: output
+  
+  - name: nginx verification
+    debug:
+      mdg: " output is done"
+    when: output.status.code == 200
+
+  - name: list all files in nginx folder
+    find:
+      path: /usr/share/nginx/html
+    register: list_files
+  - name: print files
+    debug:
+      msg: " print files {{list_files}}"
+
+  
+    
+  
+
+      
+      
+  
+  

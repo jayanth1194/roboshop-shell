@@ -1,5 +1,7 @@
 [nginx]
-172.31.35.211
+172.31.35.120
+[nginx:vars]
+nginx-public=54.165.90.77
 
 [nginx:vars]
 Location=USA
