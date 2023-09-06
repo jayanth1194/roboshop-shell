@@ -1,5 +1,6 @@
 - name: reids ansible
   hosts: redis
+  become: yes
   tasks:
   - name: install redis repo
     yum:
