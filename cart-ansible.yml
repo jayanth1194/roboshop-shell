@@ -9,6 +9,41 @@
     yum:
       name: nodejs
       state: installed
-    
-
   
+
+  - name: check user 
+    shell: id roboshop
+    register: output
+  
+
+  - name: create user if not exist
+    user:
+      name: roboshop 
+      state: present
+
+  - name: create directory
+    file:
+      path: /app
+      state: directory 
+  
+  - name: download artificat 
+    shell: curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip
+  
+  - name: unzip the file
+    unarchive:
+      src: /tmp/cart.zip
+      dest: /app
+      remote_src: yes
+
+  - name: move into /app folder
+    shell: cd /app
+  
+  - name: download the packages
+    community.general.npm:
+      path: /app
+  
+  - name: copy the cart service 
+    ansible.builtin.copy:
+      src: cart.service
+      dest: /etc/systemd/system/cart.service
+      remote_src: yes
