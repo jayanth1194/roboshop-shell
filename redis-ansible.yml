@@ -1,0 +1,33 @@
+- name: reids ansible
+  hosts: redis
+  tasks:
+  - name: install redis repo
+    yum:
+      name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+      state: installed
+  
+  - name: enable redis 6.2
+    shell: yum module enable redis:remi-6.2 -y
+  
+  - name: install redis
+    yum:
+      name: redis
+      state: installed
+    
+
+  - name: allow all network 
+    ansible.builtin.replace:
+      path: /etc/redis.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+    
+  - name: reestart the redis
+    service:
+      name: redis
+      state: started  
+    
+    
+
+    
+    
+    
