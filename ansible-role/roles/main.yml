@@ -1,0 +1,5 @@
+- name: upgrade version of ansible 
+  hosts: mongod
+  become: yes
+  roles:
+  - mongodb

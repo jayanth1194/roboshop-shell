@@ -14,12 +14,14 @@
   - name: check user 
     shell: id roboshop
     register: output
+    ignore-error: yes
   
 
   - name: create user if not exist
     user:
       name: roboshop 
       state: present
+    when: output.rc!=0
 
   - name: create directory
     file:

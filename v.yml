@@ -1,0 +1,11 @@
+ - AGE: 30 #Number
+  - NAME: "Sivakumar" #String
+  - isDevOps: true #boolean
+  - Skills: #list
+    - DevOps
+    - AWS
+    - Docker
+  - EXPERIENCE: #map
+      DevOps: 7
+      AWS: 5
+      Docker: 4
